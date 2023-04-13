@@ -1,0 +1,92 @@
+/*//////////////////// GENERALE*/
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*///////////////////// CONTAINER GRID*/
+body {
+  font-family: serif;
+  height: 100vh;
+  display: grid;
+  grid-template:
+    [header] "header header header header" 1fr
+    [nav] "nav nav nav nav" 0.5fr
+    [contenu] "contenu contenu contenu feature" 8fr
+    [footer] "footer footer footer footer" 0.5fr;
+}
+
+.main-header {
+  grid-area: header;
+}
+
+.main-header,
+.pied-de-la-paage {
+  background: black;
+  color: white;
+}
+
+.main-nav {
+  grid-area: nav;
+  display: flex;
+  flex-flow: row;
+  justify-content: end;
+  padding: 10px 15px;
+  gap: 10px;
+  background: rgb(58, 56, 56);
+}
+
+/*//////////////////////// LINK*/
+.main-nav .link {
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.main-nav .link:link {
+  text-decoration: none;
+  color: white;
+}
+
+.main-nav .link:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.main-nav .link:active {
+  text-decoration: none;
+  color: red;
+}
+
+.content {
+  grid-area: contenu;
+  background: #f7f7f7;
+}
+
+.feature {
+  grid-area: feature;
+  background: rgb(202, 228, 228);
+}
+
+.pied-de-la-paage {
+  grid-area: footer;
+}
+
+@media screen and (max-width: 36rem) {
+  body {
+    grid-template:
+      [header] "header" 1fr
+      [nav] "nav" 0.5fr
+      [contenu] "contenu" 6fr
+      [feature] "feature" 2fr
+      [footer] "footer" 0.5fr;
+  }
+  .main-nav {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+}
